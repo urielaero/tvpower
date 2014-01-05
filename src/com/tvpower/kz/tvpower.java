@@ -42,8 +42,8 @@ public class tvpower extends Activity{
 
 	    //Elements canales = doc.select("[href^=/canal/");//3 que no van:
 	    canales = doc.select(".canalimg");
-        /*va sin las comillas va sin las comillas de dentro en jQuery("[href^='/canal/ae']")*/
-        text.setText(doc.title() + " selector:-> " + canales.size());
+	    /*va sin las comillas va sin las comillas de dentro en jQuery("[href^='/canal/ae']")*/
+	    text.setText(doc.title() + " selector:-> " + canales.size());
 	    grid.setAdapter(new ItemChanels(this, canales));
         
         grid.setOnItemClickListener(
