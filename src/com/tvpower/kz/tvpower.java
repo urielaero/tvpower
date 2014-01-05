@@ -21,8 +21,7 @@ public class tvpower extends Activity{
     private Elements canales;
     private TextView text;
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
@@ -39,18 +38,16 @@ public class tvpower extends Activity{
             text.setText("no se obtuvo nada");
             return;
         }
-
-	    //Elements canales = doc.select("[href^=/canal/");//3 que no van:
-	    canales = doc.select(".canalimg");
-	    /*va sin las comillas va sin las comillas de dentro en jQuery("[href^='/canal/ae']")*/
-	    text.setText(doc.title() + " selector:-> " + canales.size());
-	    grid.setAdapter(new ItemChanels(this, canales));
+        //Elements canales = doc.select("[href^=/canal/");//3 que no van:	
+        canales = doc.select(".canalimg");
+        /*va sin las comillas de dentro en jQuery("[href^='/canal/ae']")*/
+        text.setText(doc.title() + " selector:-> " + canales.size());
+        grid.setAdapter(new ItemChanels(this, canales));
         
         grid.setOnItemClickListener(
             new AdapterView.OnItemClickListener(){
                 public void onItemClick(AdapterView<?> parent, android.view.View v, int position, long id){
                     Intent intent = new Intent(tvpower.this,Chanel.class);
-                    
                     Bundle bundle = new Bundle();
                     chanel = canales.get(position);
                     //todos los programas
@@ -60,12 +57,9 @@ public class tvpower extends Activity{
                     bundle.putString("html",chanel.parent().parent().parent().select("td").toString());
                     intent.putExtras(bundle);
                     startActivity(intent);
-                    
                 }
 
             }
         );
-
     }
-
 }
