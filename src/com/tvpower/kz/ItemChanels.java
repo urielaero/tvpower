@@ -43,7 +43,7 @@ public class ItemChanels extends BaseAdapter {
             holder.img = (ImageView) item.findViewById(R.id.imgLogo);
             item.setTag(holder);
         }else{
-		    holder = (ViewHolder) item.getTag();
+            holder = (ViewHolder) item.getTag();
         }
 
         canal = canales.get(position);
@@ -57,29 +57,28 @@ public class ItemChanels extends BaseAdapter {
             holder.img.setImageDrawable(getImg(nameOfimg.replace("-","_")));
         }
         return item;
-	}
+    }
 
-	@Override
-	public int getCount() {
-		return canales.size();//mobileValues.length;
-	}
+    @Override
+    public int getCount() {
+        return canales.size();//mobileValues.length;
+    }
 
-	@Override
-	public Object getItem(int position) {
-		return null;
-	}
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
 
-	@Override
-	public long getItemId(int position) {
-		return 0;
-	}
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
 
     private Drawable getImg(String path){
-    	path = "drawable/" + path;
-    	int imageID = context.getResources().getIdentifier(path, null, context.getPackageName());
+        path = "drawable/" + path;
+        int imageID = context.getResources().getIdentifier(path, null, context.getPackageName());
         Drawable img = context.getResources().getDrawable(imageID);
         return img;
     }
 
 }
-
